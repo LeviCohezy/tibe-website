@@ -24,7 +24,7 @@ export default function Tilt({ children, max = 14, className = "" }: { children:
     <div ref={el} onPointerMove={move} onPointerLeave={leave} className={`[perspective:1100px] ${className}`}>
       <div ref={inner} className="relative h-full w-full transition-transform duration-500 ease-out [transform-style:preserve-3d]">
         {children}
-        <div ref={glare} className="pointer-events-none absolute inset-0 mix-blend-screen transition-[background] duration-300" />
+        <div ref={glare} className="feather pointer-events-none absolute inset-0 mix-blend-screen transition-[background] duration-300" />
       </div>
     </div>
   );
