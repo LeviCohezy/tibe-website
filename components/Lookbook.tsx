@@ -31,7 +31,7 @@ export default function Lookbook() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset("/img/tibe-portrait.jpg")} alt="Tibe in de volledige look" className="h-full w-full object-cover contrast-110" />
         </motion.figure>
-        <Caption n="I">Tibe — Dagger Biker, Cargo, Pendant</Caption>
+        <Caption n="I">Tibe — leren jas, cargo, Hyperfocus Pendant</Caption>
 
         <div className="mt-32 grid grid-cols-5 items-end gap-4">
           <motion.figure {...clip} className="col-span-3 aspect-square overflow-hidden"><ProductImage p={a} /></motion.figure>

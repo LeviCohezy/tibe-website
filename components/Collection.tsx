@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { products } from "@/lib/data";
 import ProductImage from "./ProductImage";
+import Tilt from "./Tilt";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,11 +48,15 @@ export default function Collection() {
 
       <div ref={track} className="grid grid-cols-2 gap-3 px-4 md:flex md:w-max md:gap-6 md:px-10">
         {products.map((p) => (
-          <article key={p.id} data-hover className="group relative aspect-[3/4] overflow-hidden bg-ink md:h-[62vh] md:w-auto">
-            <ProductImage p={p} className="transition-transform duration-[1.2s] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-110" />
-            <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/55" />
+          <article key={p.id} data-hover className="spot group relative aspect-[3/4] overflow-hidden border border-white/5 md:h-[62vh] md:w-auto">
+            <Tilt className="absolute inset-0">
+              <div className="float absolute inset-[8%] [transform:translateZ(60px)]" style={{ animationDelay: `${-Number(p.id) * 0.7}s` }}>
+                <ProductImage p={p} fit="contain" />
+              </div>
+              <div className="float-shadow" style={{ animationDelay: `${-Number(p.id) * 0.7}s` }} />
+            </Tilt>
             <span className="absolute left-3 top-3 font-mono text-[10px] tracking-[0.3em] text-silver md:left-5 md:top-5">{p.id}/10</span>
-            <div className="absolute inset-x-0 bottom-0 translate-y-0 p-3 transition-transform duration-500 md:translate-y-full md:p-6 md:group-hover:translate-y-0">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3 pt-10 transition-transform duration-500 md:translate-y-full md:p-6 md:pt-16 md:group-hover:translate-y-0">
               <h3 className="font-serif text-xl font-semibold text-white md:text-3xl">{p.name}</h3>
               <p className="mt-1 hidden font-mono text-[10px] uppercase tracking-[0.2em] text-silver md:block">{p.type}</p>
               <div className="mt-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] md:mt-4 md:text-xs">

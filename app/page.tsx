@@ -8,6 +8,7 @@ import Loader from "@/components/Loader";
 import Lookbook from "@/components/Lookbook";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
+import Spotlight from "@/components/Spotlight";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Marquee />
         <About />
         <Drip />
+        <Spotlight />
         <Collection />
         <Marquee reverse />
         <Lookbook />

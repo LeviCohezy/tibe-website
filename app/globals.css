@@ -99,3 +99,20 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .grain, .marquee-track, .glitch::before, .glitch::after { animation: none !important; }
 }
+
+/* zwevende kledingstukken */
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+.float { animation: float 6s ease-in-out infinite; }
+.float-shadow {
+  position: absolute; left: 20%; right: 20%; bottom: 4%; height: 18px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(185,188,194,.18), transparent 70%);
+  filter: blur(6px); animation: shadow 6s ease-in-out infinite;
+}
+@keyframes shadow { 0%,100% { transform: scaleX(1); opacity: 1 } 50% { transform: scaleX(.8); opacity: .55 } }
+.spot { background: radial-gradient(ellipse 60% 55% at 50% 45%, #141416 0%, #050505 70%); }
+@media (prefers-reduced-motion: reduce) { .float, .float-shadow { animation: none !important; } }
+/* laat het zwarte fotokader wegvloeien zodat het stuk echt zweeft */
+.feather {
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+}

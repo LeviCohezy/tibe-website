@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { asset, type Product } from "@/lib/data";
 
-export default function ProductImage({ p, className = "" }: { p: Product; className?: string }) {
+export default function ProductImage({ p, className = "", fit = "cover" }: { p: Product; className?: string; fit?: "cover" | "contain" }) {
   const [failed, setFailed] = useState(false);
   if (!p.img || failed) {
     return (
@@ -14,5 +14,5 @@ export default function ProductImage({ p, className = "" }: { p: Product; classN
     );
   }
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={asset(p.img)} alt={`${p.name} — ${p.type}`} loading="lazy" onError={() => setFailed(true)} className={`h-full w-full object-cover ${className}`} />;
+  return <img src={asset(p.img)} alt={`${p.name} — ${p.type}`} loading="lazy" onError={() => setFailed(true)} className={`h-full w-full ${fit === "contain" ? "object-contain feather" : "object-cover"} ${className}`} />;
 }
